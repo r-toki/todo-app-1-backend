@@ -1,0 +1,2 @@
+RUST_INSTALL_SQLX=1
+SQLX_FLAGS="--no-default-features --features rustls,postgres"
