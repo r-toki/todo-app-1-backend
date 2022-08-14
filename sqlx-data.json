@@ -1,0 +1,133 @@
+{
+  "db": "PostgreSQL",
+  "0abcfb5972b55eb1549ffda58df93388f4ce869faae710ee8146e060834a48d1": {
+    "describe": {
+      "columns": [
+        {
+          "name": "id",
+          "ordinal": 0,
+          "type_info": "Int8"
+        },
+        {
+          "name": "description",
+          "ordinal": 1,
+          "type_info": "Text"
+        },
+        {
+          "name": "completed",
+          "ordinal": 2,
+          "type_info": "Bool"
+        },
+        {
+          "name": "created_at",
+          "ordinal": 3,
+          "type_info": "Timestamptz"
+        },
+        {
+          "name": "updated_at",
+          "ordinal": 4,
+          "type_info": "Timestamptz"
+        }
+      ],
+      "nullable": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "parameters": {
+        "Left": [
+          "Int8"
+        ]
+      }
+    },
+    "query": "\nDELETE FROM tasks\nWHERE id = $1\nRETURNING *\n            "
+  },
+  "0ce6c18f11685e38f4f66164eceef0d131d50ca20fcbea818d0e2a751607afa7": {
+    "describe": {
+      "columns": [
+        {
+          "name": "id",
+          "ordinal": 0,
+          "type_info": "Int8"
+        },
+        {
+          "name": "description",
+          "ordinal": 1,
+          "type_info": "Text"
+        },
+        {
+          "name": "completed",
+          "ordinal": 2,
+          "type_info": "Bool"
+        },
+        {
+          "name": "created_at",
+          "ordinal": 3,
+          "type_info": "Timestamptz"
+        },
+        {
+          "name": "updated_at",
+          "ordinal": 4,
+          "type_info": "Timestamptz"
+        }
+      ],
+      "nullable": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "parameters": {
+        "Left": []
+      }
+    },
+    "query": "\nSELECT *\nFROM tasks\nORDER BY id\n            "
+  },
+  "f1ec5395aeda026ff4565c6a9997363c2d2d829b1dea15c1f7f1cc7f91f3cb1b": {
+    "describe": {
+      "columns": [
+        {
+          "name": "id",
+          "ordinal": 0,
+          "type_info": "Int8"
+        },
+        {
+          "name": "description",
+          "ordinal": 1,
+          "type_info": "Text"
+        },
+        {
+          "name": "completed",
+          "ordinal": 2,
+          "type_info": "Bool"
+        },
+        {
+          "name": "created_at",
+          "ordinal": 3,
+          "type_info": "Timestamptz"
+        },
+        {
+          "name": "updated_at",
+          "ordinal": 4,
+          "type_info": "Timestamptz"
+        }
+      ],
+      "nullable": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      }
+    },
+    "query": "\nINSERT INTO tasks (description)\nVALUES ( $1 )\nRETURNING *\n            "
+  }
+}
