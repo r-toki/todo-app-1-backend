@@ -4,15 +4,17 @@ use actix_web::{
     middleware::Logger,
     web, App, HttpServer,
 };
+use anyhow::Result;
 use dotenv::dotenv;
 use sqlx::PgPool;
 use std::env;
 
 mod api;
+mod error;
 mod model;
 
 #[actix_web::main]
-async fn main() -> std::io::Result<()> {
+async fn main() -> Result<(), std::io::Error> {
     dotenv().ok();
     env_logger::init_from_env(env_logger::Env::default().default_filter_or("info"));
 

@@ -1,3 +1,4 @@
+use anyhow::Result;
 use chrono::{DateTime, Utc};
 use serde::Serialize;
 use sqlx::PgPool;
@@ -17,7 +18,7 @@ pub struct Task {
 }
 
 impl Task {
-    pub async fn all(pool: &PgPool) -> Result<Vec<Task>, sqlx::Error> {
+    pub async fn all(pool: &PgPool) -> Result<Vec<Task>> {
         let tasks = sqlx::query_as!(
             Task,
             r#"
@@ -32,7 +33,7 @@ ORDER BY id
         Ok(tasks)
     }
 
-    pub async fn insert(pool: &PgPool, new_task: NewTask) -> Result<Task, sqlx::Error> {
+    pub async fn insert(pool: &PgPool, new_task: NewTask) -> Result<Task> {
         let task = sqlx::query_as!(
             Task,
             r#"
@@ -48,7 +49,7 @@ RETURNING *
         Ok(task)
     }
 
-    pub async fn delete(pool: &PgPool, id: i64) -> Result<Task, sqlx::Error> {
+    pub async fn delete(pool: &PgPool, id: i64) -> Result<Task> {
         let task = sqlx::query_as!(
             Task,
             r#"
